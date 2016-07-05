@@ -9,8 +9,6 @@ module Twilivery
     end
 
     def deliver!(mail)
-      @data = {content: {}}
-
       message = prepare_message_from mail
 
       if message[:to].empty?
