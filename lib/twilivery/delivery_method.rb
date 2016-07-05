@@ -56,6 +56,7 @@ module Twilivery
 
     def prepare_recipients recipients
       recipients = [recipients] unless recipients.is_a?(Array)
+      recipients
     end
 
     def cleanse_encoding content
