@@ -47,8 +47,12 @@ module Twilivery
       message[:to] += prepare_recipients(mail.bcc).flatten unless mail.bcc.nil?
 
       # Body
-      if mail.text_part
-        message[:body] = cleanse_encoding(mail.text_part.body.to_s)
+      if mail.multipart?
+        if mail.text_part
+          message[:body] = cleanse_encoding(mail.text_part.body.to_s)
+        end
+      else
+        message[:body] = cleanse_encoding(mail.body.to_s)
       end
 
       message
