@@ -19,5 +19,4 @@ Gem::Specification.new do |s|
   s.add_dependency 'twilio-ruby', '~> 4.11.1'
 
   s.add_development_dependency "rspec", '>= 3.4.0'
-  s.add_development_dependency "webmock", '>= 1.24.2'
 end

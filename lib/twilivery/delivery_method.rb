@@ -2,19 +2,19 @@ module Twilivery
   class DeliveryMethod
     require 'twilio-ruby'
 
-    attr_accessor :settings, :data, :response, :headers
+    attr_accessor :settings, :message, :response, :headers
 
     def initialize(options = {})
       @settings = options
     end
 
     def deliver!(mail)
-      message = prepare_message_from mail
+      @message = prepare_message_from mail
 
-      if message[:to].empty?
+      if @message[:to].empty?
         raise Twilivery::DeliveryException, {}
       else
-        post_sms_message message
+        post_sms_message @message
       end
     end
 
