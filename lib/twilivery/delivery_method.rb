@@ -1,6 +1,7 @@
 module Twilivery
   class DeliveryMethod
     require 'twilio-ruby'
+    require 'phony_rails'
 
     attr_accessor :settings, :message, :response, :headers
 
@@ -60,11 +61,18 @@ module Twilivery
 
     def prepare_recipients recipients
       recipients = [recipients] unless recipients.is_a?(Array)
-      recipients
+      recipients.map { |r| convert_to_e164(r) }
     end
 
     def cleanse_encoding content
       ::JSON.parse({c: content}.to_json)["c"]
+    end
+
+    def convert_to_e164 raw_phone
+      puts "Raw: #{raw_phone}"
+      PhonyRails.normalize_number(
+        raw_phone.gsub(/\D/, ''),
+        country_code: Twilivery.configuration.default_country_code || 'US')
     end
 
   end

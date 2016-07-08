@@ -16,6 +16,7 @@ module Twilivery
     attr_accessor :account_sid
     attr_accessor :auth_token
     attr_accessor :default_sms_sender
+    attr_accessor :default_country_code
 
     def initialize
       set_defaults
@@ -25,6 +26,7 @@ module Twilivery
       @account_sid = ENV.fetch('TWILIO_ACCOUNT_SID') { '' }
       @auth_token = ENV.fetch('TWILIO_AUTH_TOKEN') { nil }
       @default_sms_sender = ENV.fetch('TWILIO_SMS_SENDER') { nil }
+      @default_country_code = ENV.fetch('TWILIO_COUNTRY_CODE') { nil }
     end
   end
 end

@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    twilivery (0.0.2)
+    twilivery (0.0.3)
+      phony_rails
       rails (>= 4.0, < 5.1)
       twilio-ruby (~> 4.11.1)
 
@@ -69,6 +70,10 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    phony (2.15.26)
+    phony_rails (0.14.2)
+      activesupport (>= 3.0)
+      phony (~> 2.12)
     pkg-config (1.1.7)
     rack (2.0.1)
     rack-test (0.6.3)

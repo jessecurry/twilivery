@@ -20,5 +20,12 @@ describe Twilivery::DeliveryMethod do
 
       expect(@delivery_method.message[:to]).to eq(['+18131234567', '+18131234568'])
     end
+
+    it "transforms numbers to E.164 format" do
+      test_email = Mailer.test_email(to: '813478-4567')
+      @delivery_method.deliver!(test_email)
+
+      expect(@delivery_method.message[:to]).to eq(['+18134784567'])
+    end
   end
 end

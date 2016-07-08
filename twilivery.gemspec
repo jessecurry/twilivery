@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '>= 4.0', '< 5.1'
   s.add_dependency 'twilio-ruby', '~> 4.11.1'
+  s.add_dependency 'phony_rails'
 
   s.add_development_dependency "rspec", '>= 3.4.0'
 end
